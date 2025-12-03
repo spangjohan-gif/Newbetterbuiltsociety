@@ -50,7 +50,7 @@ def get_label(score):
 def export_pdf(scores, answers, total_score):
     doc = fitz.open()
     page = doc.new_page()
-    text = "Better Built Society - Resultat
+    text = "Better Built Society - Resultat"
 
 "
     text += f"Totalpoäng: {round(total_score,3)}
