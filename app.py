@@ -59,7 +59,7 @@ Detaljer per parameter:
 """
     for param, score in scores.items():
         label, _ = get_label(score)
-        text += f"""param}: {score} ({label})
+        text += f"""{param}: {score} ({label})
 
 Dina svar:
 
