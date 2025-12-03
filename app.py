@@ -51,8 +51,6 @@ def export_pdf(scores, answers, total_score):
     doc = fitz.open()
     page = doc.new_page()
 
-    # Build text using multi-line string and 
- for line breaks
     text = f"""Better Built Society - Resultat
 
 Totalpoäng: {round(total_score, 3)}
@@ -100,7 +98,6 @@ else:
     scores = calculate_scores(st.session_state.answers)
     total_score = sum(scores.values()) / len(scores)
 
-    # Gauge chart
     fig_gauge = go.Figure(go.Indicator(
         mode="gauge+number",
         value=total_score,
@@ -109,7 +106,6 @@ else:
     ))
     st.plotly_chart(fig_gauge)
 
-    # Bar chart
     fig_bar = go.Figure(go.Bar(
         x=list(scores.keys()),
         y=list(scores.values()),
@@ -118,17 +114,14 @@ else:
     fig_bar.update_layout(title="Resultat per parameter", xaxis_title="Parameter", yaxis_title="Poäng", yaxis_range=[0,1])
     st.plotly_chart(fig_bar)
 
-    # Show answers
     st.write("### Dina svar")
     st.write(st.session_state.answers)
 
-    # Show calculated scores with labels
     st.write("### Beräknade poäng")
     for param, score in scores.items():
         label, color = get_label(score)
         st.markdown(f"**{param}:** {score} - <span style='color:{color}'>{label}</span>", unsafe_allow_html=True)
 
-    # Export to PDF button
     if st.button("Exportera som PDF"):
         pdf_path = export_pdf(scores, st.session_state.answers, total_score)
         with open(pdf_path, "rb") as f:
