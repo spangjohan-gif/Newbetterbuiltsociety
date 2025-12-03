@@ -52,22 +52,20 @@ def export_pdf(scores, answers, total_score):
     page = doc.new_page()
 
     text = f"""Better Built Society - Resultat
-
+# for line breaks
 Totalpoäng: {round(total_score, 3)}
 
 Detaljer per parameter:
 """
     for param, score in scores.items():
         label, _ = get_label(score)
-        text += f"{param}: {score} ({label})
-"
+        text += f"""param}: {score} ({label})
 
-    text += "
 Dina svar:
-"
+
     for param, ans in answers.items():
-        text += f"{param}: {ans}
-"
+        {param}: {ans}
+"""
 
     page.insert_text((50, 50), text)
     pdf_path = "resultat.pdf"
