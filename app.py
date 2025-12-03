@@ -50,11 +50,12 @@ def get_label(score):
 def export_pdf(scores, answers, total_score):
     doc = fitz.open()
     page = doc.new_page()
+
+    # Build text using multi-line string and 
+ for line breaks
     text = f"""Better Built Society - Resultat
 
-
-Totalpoäng: {round(total_score,3)}
-
+Totalpoäng: {round(total_score, 3)}
 
 Detaljer per parameter:
 """
@@ -62,12 +63,14 @@ Detaljer per parameter:
         label, _ = get_label(score)
         text += f"{param}: {score} ({label})
 "
+
     text += "
 Dina svar:
 "
     for param, ans in answers.items():
         text += f"{param}: {ans}
 "
+
     page.insert_text((50, 50), text)
     pdf_path = "resultat.pdf"
     doc.save(pdf_path)
