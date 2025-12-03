@@ -59,15 +59,12 @@ Detaljer per parameter:
 """
     for param, score in scores.items():
         label, _ = get_label(score)
-        text += f"{param}: {score} ({label})
-"
-
-    text += "
+        text += f"""{param}: {score} ({label})
 Dina svar:
-"
+
     for param, ans in answers.items():
-        text += f"{param}: {ans}
-"
+       {param}: {ans}
+"""
 
     page.insert_text((50, 50), text)
     pdf_path = "resultat.pdf"
