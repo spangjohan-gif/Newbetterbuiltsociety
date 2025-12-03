@@ -50,14 +50,14 @@ def get_label(score):
 def export_pdf(scores, answers, total_score):
     doc = fitz.open()
     page = doc.new_page()
-    text = "Better Built Society - Resultat"
+    text = f"""Better Built Society - Resultat
 
-"
-    text += f"Totalpoäng: {round(total_score,3)}
 
-"
-    text += "Detaljer per parameter:
-"
+Totalpoäng: {round(total_score,3)}
+
+
+Detaljer per parameter:
+"""
     for param, score in scores.items():
         label, _ = get_label(score)
         text += f"{param}: {score} ({label})
