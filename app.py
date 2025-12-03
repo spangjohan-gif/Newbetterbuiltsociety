@@ -52,7 +52,7 @@ def export_pdf(scores, answers, total_score):
     page = doc.new_page()
 
     text = f"""Better Built Society - Resultat
-
+# for line
 Totalpoäng: {round(total_score, 3)}
 
 Detaljer per parameter:
