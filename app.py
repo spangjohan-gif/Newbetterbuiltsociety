@@ -336,6 +336,6 @@ else:
     # Reset
     if st.button("Starta om"):
         st.session_state.step = 0
-               st.session_state.answers = {}
-                st.rerun()
-        ``
+        st.session_state.answers = {}
+        st.rerun()
+    ``
