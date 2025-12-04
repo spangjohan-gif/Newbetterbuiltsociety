@@ -338,4 +338,3 @@ else:
         st.session_state.step = 0
         st.session_state.answers = {}
         st.rerun()
-    ``
